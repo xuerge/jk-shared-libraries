@@ -24,7 +24,7 @@ public class Main implements Serializable {
                         new SCM(script).checkOutFrom()
                     } catch (Exception e) {
                         script.stackTrace(e)
-                        script.error result.error_message
+                        script.error
                     }
                 }
             }
