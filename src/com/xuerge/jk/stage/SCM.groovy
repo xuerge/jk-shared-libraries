@@ -11,14 +11,17 @@ class SCM {
     }
 
     Map gitCheckout() {
-        def scmVars = script.checkout(
-                [$class                           : 'GitSCM',
-                 branches                         : [[name: '*/master']],
-                 doGenerateSubmoduleConfigurations: false,
-                 extensions                       : [],
-                 submoduleCfg                     : [],
-                 userRemoteConfigs                : [[url: 'https://github.com/xuerge/demo']]]
-        )
-        return scmVars
+        script.stage ("SCM") {
+            def scmVars = script.checkout(
+                    [$class                           : 'GitSCM',
+                     branches                         : [[name: '*/master']],
+                     doGenerateSubmoduleConfigurations: false,
+                     extensions                       : [],
+                     submoduleCfg                     : [],
+                     userRemoteConfigs                : [[url: 'https://github.com/xuerge/demo']]]
+            )
+            return scmVars
+        }
+
     }
 }
