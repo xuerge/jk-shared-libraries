@@ -6,7 +6,7 @@ class SCM {
         this.script = script
     }
 
-    def checkOutFrom() {
+    public void checkOutFrom() {
         git url: "https://github.com/xuerge/demo"
     }
 
