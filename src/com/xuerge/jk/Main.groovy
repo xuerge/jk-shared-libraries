@@ -18,6 +18,7 @@ public class Main implements Serializable {
     def run() {
         script.node {
             script.cleanWs()
+            new SCM(script).checkOutFrom()
             script.ansiColor('xterm') {
                 script.timestamps {
                     try {
