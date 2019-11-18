@@ -3,9 +3,9 @@ package com.xuerge.jk
 public class Main implements Serializable {
     def script
     def env
-    def stages = [
-            Scm
-    ]
+//    def stages = [
+//            Scm
+//    ]
 
     Main(Object script, String env) {
         this.script = script
