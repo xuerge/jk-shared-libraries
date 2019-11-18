@@ -1,5 +1,7 @@
 package com.xuerge.jk
 
+import com.xuerge.jk.stage.SCM
+
 public class Main implements Serializable {
     def script
     def env
@@ -14,7 +16,19 @@ public class Main implements Serializable {
     }
 
     def run() {
-        script.echo "hello"
+        script.node {
+            script.cleanWs()
+            script.ansiColor('xterm') {
+                script.timestamps {
+                    try {
+                        new SCM(script).checkOutFrom()
+                    } catch (Exception e) {
+                        script.stackTrace(e)
+                        script.error result.error_message
+                    }
+                }
+            }
+        }
     }
 }
 
