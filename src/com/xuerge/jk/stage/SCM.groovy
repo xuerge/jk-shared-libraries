@@ -11,8 +11,9 @@ class SCM {
 
     public void run() {
         def scmVars = gitCheckout()
-        result.commit_id = scmVars.GIT_COMMIT.trim().take(8)
-        result.commit_message = commitMessage()
+        script.echo scmVars
+        //result.commit_id = scmVars.GIT_COMMIT.trim().take(8)
+//        result.commit_message = commitMessage()
     }
 
 
@@ -21,8 +22,10 @@ class SCM {
                 [$class: 'GitSCM',
                  branches: [[name: '*/master']],
                  doGenerateSubmoduleConfigurations: false,
-                 extensions: [], submoduleCfg: [],
+                 extensions: [],
+                 submoduleCfg: [],
                  userRemoteConfigs: [[url: 'https://github.com/xuerge/demo']]])
+
         return scmVars
     }
 
