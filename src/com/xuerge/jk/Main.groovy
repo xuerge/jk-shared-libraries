@@ -13,7 +13,9 @@ public class Main implements Serializable {
     Main(Object script, String env) {
         this.script = script
         this.env = env
-        result = []
+        result = {
+            commit_id:''
+        }
 
     }
 
