@@ -14,7 +14,7 @@ class Utilities implements Serializable {
         )
     }
 
-    static def echo(steps,args){
+    static def print(steps,args){
         steps.echo "${args}"
     }
 }
