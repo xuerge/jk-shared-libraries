@@ -5,6 +5,7 @@ import com.xuerge.jk.stage.SCM
 public class Main implements Serializable {
     def script
     def env
+    def result
 //    def stages = [
 //            Scm
 //    ]
@@ -18,12 +19,8 @@ public class Main implements Serializable {
     def run() {
         script.node {
             script.cleanWs()
-            script.stage('a'){
-                script.echo 'a'
-            }
-            script.stage('b'){
-                script.echo 'b'
-            }
+            new SCM(script, result).run()
+            script.echo result.commit_id
         }
     }
 }
