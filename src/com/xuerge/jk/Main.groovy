@@ -18,15 +18,11 @@ public class Main implements Serializable {
     def run() {
         script.node {
             script.cleanWs()
-            new SCM(script).gitCheckout()
-            script.ansiColor('xterm') {
-                script.timestamps {
-                    try {
-                        new SCM(script).gitCheckout()
-                    } catch (Exception e) {
-                        script.stackTrace(e)
-                    }
-                }
+            script.stage('a'){
+                script.echo 'a'
+            }
+            script.stage('b'){
+                script.echo 'b'
             }
         }
     }
