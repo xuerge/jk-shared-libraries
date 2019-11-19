@@ -11,9 +11,13 @@ class SCM {
 
     public void run() {
         def scmVars = gitCheckout()
-        script.echo scmVars
+        script.echo scmVars.GIT_COMMIT
         //result.commit_id = scmVars.GIT_COMMIT.trim().take(8)
 //        result.commit_message = commitMessage()
+//        message={GIT_BRANCH=origin/master, GIT_COMMIT=40ce461b6fbfb4e218af1daaacbba6cbe417f27f,
+//                GIT_PREVIOUS_COMMIT=40ce461b6fbfb4e218af1daaacbba6cbe417f27f,
+//                        GIT_PREVIOUS_SUCCESSFUL_COMMIT=40ce461b6fbfb4e218af1daaacbba6cbe417f27f,
+//                                GIT_URL=https://github.com/xuerge/demo}
     }
 
 
