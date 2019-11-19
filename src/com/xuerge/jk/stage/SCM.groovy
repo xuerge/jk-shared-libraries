@@ -12,7 +12,7 @@ class SCM {
     public void run() {
         def scmVars = gitCheckout()
         script.echo scmVars.GIT_COMMIT
-        //result.commit_id = scmVars.GIT_COMMIT.trim().take(8)
+        result.commit_id = scmVars.GIT_COMMIT
 //        result.commit_message = commitMessage()
 //        message={GIT_BRANCH=origin/master, GIT_COMMIT=40ce461b6fbfb4e218af1daaacbba6cbe417f27f,
 //                GIT_PREVIOUS_COMMIT=40ce461b6fbfb4e218af1daaacbba6cbe417f27f,
