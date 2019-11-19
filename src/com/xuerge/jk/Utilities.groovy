@@ -13,4 +13,8 @@ class Utilities implements Serializable {
                  userRemoteConfigs                : [[url: 'https://github.com/xuerge/demo']]]
         )
     }
+
+    static def echo(steps,args){
+        steps.echo "${args}"
+    }
 }
