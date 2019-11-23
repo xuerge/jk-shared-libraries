@@ -11,7 +11,7 @@ public class Blog implements Serializable {
     def run() {
         script.node {
             script.echo "${script.credentials('test')}"
-            script.sh 'ssh -o StrictHostKeyChecking=no root@47.52.174.68 "cd /root/blog;ls -all"'
+            script.sh 'ssh -o StrictHostKeyChecking=no root@47.52.174.68 "cd /root/blog;./start"'
         }
     }
 }
