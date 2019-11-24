@@ -1,5 +1,6 @@
 package com.xuerge.jk
 
+import com.xuerge.jk.stage.Compile
 import com.xuerge.jk.stage.SCM
 
 public class Main implements Serializable {
@@ -23,7 +24,7 @@ public class Main implements Serializable {
         script.node {
             script.cleanWs()
             new SCM(script, result).run()
-            script.echo result.commit_id
+            new Compile(script).run()
         }
     }
 }
