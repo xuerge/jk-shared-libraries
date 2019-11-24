@@ -39,6 +39,9 @@ public class Main implements Serializable {
                 script.sh 'docker build --build-arg JAR_FILE=target/*.jar -t yipianlarou/devops-demo-springboot .'
                 script.sh 'docker push yipianlarou/devops-demo-springboot'
             }
+            script.stage('deploy'){
+                script.sh 'ssh -o StrictHostKeyChecking=no root@47.52.174.68 "cd /root/devops-demo-springboot;./start"'
+            }
         }
     }
 }
