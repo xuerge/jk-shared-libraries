@@ -23,8 +23,12 @@ public class Main implements Serializable {
     def run() {
         script.node {
             script.cleanWs()
-            new SCM(script, result).run()
-            new Compile(script).run()
+            script.stage('scm'){
+                new SCM(script, result).run()
+            }
+            script.stage('compile'){
+                new Compile(script).run()
+            }
         }
     }
 }
