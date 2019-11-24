@@ -29,6 +29,14 @@ public class Main implements Serializable {
             script.stage('compile'){
                 new Compile(script).run()
             }
+            scrip.stage('artifact'){
+                def content = 'FROM openjdk:8-jdk-alpine\n' +
+                        'ARG JAR_FILE\n' +
+                        'COPY ${JAR_FILE} app.jar\n' +
+                        'ENTRYPOINT ["java","-jar","/app.jar"]'
+                
+                stage.script.writeFile file: "Dockerfile", text: content
+            }
         }
     }
 }
