@@ -29,7 +29,7 @@ public class Main implements Serializable {
             script.stage('compile'){
                 new Compile(script).run()
             }
-            scrip.stage('artifact'){
+            script.stage('artifact'){
                 def content = 'FROM openjdk:8-jdk-alpine\n' +
                         'ARG JAR_FILE\n' +
                         'COPY ${JAR_FILE} app.jar\n' +
