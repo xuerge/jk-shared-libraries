@@ -34,8 +34,8 @@ public class Main implements Serializable {
                         'ARG JAR_FILE\n' +
                         'COPY ${JAR_FILE} app.jar\n' +
                         'ENTRYPOINT ["java","-jar","/app.jar"]'
-                
-                stage.script.writeFile file: "Dockerfile", text: content
+
+                script.writeFile file: "Dockerfile", text: content
             }
         }
     }
