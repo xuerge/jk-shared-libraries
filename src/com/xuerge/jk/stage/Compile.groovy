@@ -7,7 +7,7 @@ class Compile {
         this.script = script
     }
 
-    run(){
+    def run(){
         script.sh 'mvn clean install'
     }
 }
