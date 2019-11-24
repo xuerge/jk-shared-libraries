@@ -36,6 +36,8 @@ public class Main implements Serializable {
                         'ENTRYPOINT ["java","-jar","/app.jar"]'
 
                 script.writeFile file: "Dockerfile", text: content
+                script.sh 'docker build --build-arg JAR_FILE=target/*.jar -t devops-demo-springboot .'
+                script.sh 'docker push yipianlarou/devops-demo-springboot'
             }
         }
     }
